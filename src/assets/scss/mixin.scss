@@ -1,0 +1,138 @@
+@mixin border_top1px($color, $border_style){
+    position: relative;
+    &::after{
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border-top: 1px $border_style $color;
+        content: '';
+    }
+}
+@mixin border_bot1px($color, $border_style){
+    position: relative;
+    &::after{
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px $border_style $color;
+        content: '';
+    }
+}
+@mixin border_lef1px($color, $border_style){
+    position: relative;
+    &::after{
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        border-left: 1px $border_style $color;
+        content: '';
+    }
+}
+@mixin border_rig1px($color, $border_style){
+    position: relative;
+    &::after{
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        border-right: 1px $border_style $color;
+        content: '';
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5){
+    .border-tb-1px{
+         &::after{
+             transform: scaleY(0.7);
+         }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    .border-tb-1px{
+         &::after{
+             transform: scaleY(0.5);
+        }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    .border-tb-1px{
+         &::after{
+             transform: scaleY(0.3);
+        }
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5){
+    .border-lr-1px{
+         &::after{
+             transform: scaleX(0.7);
+         }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    .border-lr-1px{
+         &::after{
+             transform: scaleX(0.5);
+        }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    .border-lr-1px{
+         &::after{
+             transform: scaleX(0.3);
+        }
+    }
+}
+
+//超出一行文本省略
+@mixin overflow() {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+//多行超出文本省略
+@mixin overflow-more($num) {
+    display:-webkit-box; 
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:$num;
+    display: -moz-box; 
+    -moz-line-clamp: $num !important;
+    -moz-box-orient: vertical;
+    overflow: hidden;
+}
+// 绝对居中
+@mixin center($width, $height) {
+    position: absolute;
+    left:50%;
+    top:50%;
+    width:$width;
+    height:$height;
+    margin:(-$height / 2) 0 0 (-$width / 2);
+}
+@mixin shadow{
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.text-center{text-align:center;}
+.text-left{text-align:left;}
+.text-right{text-align:right;}
+.inline-block{display:inline-block;}
+.clearfix:after{
+    content:'';
+    display:block;
+    height:0;
+    visibility:hidden;
+    clear:both;
+}
+.clearfix{zoom:1;}
