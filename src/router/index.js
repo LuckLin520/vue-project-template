@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
+import Home from '@/components/home/Home'
+import Nest from '@/components/nest/Nest'
 
 Vue.use(Router)
 
@@ -28,6 +30,8 @@ export default new Router({
      },
      component: { template: '<div>boos页面1</div>' },
    },
+   { path: '/home', component: Home },
+   { path: '/nest', component: Nest },
    { path: '*', component: { template: '<div>404未找到</div>' } }
  ]
 })
